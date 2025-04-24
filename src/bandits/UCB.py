@@ -37,4 +37,4 @@ class UCB(UCB2):
         super().__init__(n_arms, alpha=0)
 
     def get_name(self):
-        return f"UCB"
+        return "UCB"
