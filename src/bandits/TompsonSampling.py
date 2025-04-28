@@ -9,7 +9,7 @@ class TompsonSampling(BaseBandit):
         self.beta = np.ones(n_arms)
         self.alpha = np.ones(n_arms)
 
-    def select_arm(self, *args, **kwargs) -> int:
+    def select_arm(self, *args, **kwargs) -> np.ndarray[int]:
         return np.argmax([beta.rvs(a, b) for a, b in zip(self.alpha, self.beta)])
 
     def update(self, arm: int, reward: float, *args, **kwargs):
@@ -19,4 +19,4 @@ class TompsonSampling(BaseBandit):
         self.beta[arm] += 1
 
     def get_name(self):
-        return "TompsonSampling"
+        return "ThompsonSampling"
